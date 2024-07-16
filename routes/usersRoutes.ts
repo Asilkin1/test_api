@@ -83,8 +83,6 @@ router.get('/users/me',verifyUserIsAuthenticated,isAdmin, (req: { user: any; },r
 // [X] Auth required and Admin change user role (no db operations)
 router.put('/users/:id/role',verifyUserIsAuthenticated,isAdmin,(req: { params: { id: string | number; }; body: { username: any; email: any; password: any; }; },res: { json: (arg0: { username: any; password: any; email: any; role: any; }) => void; }) => {
     
-    
-    // bit mask for roles
     const ROLES = {
         ADMIN: 1 << 0,           
         USER: 1 << 1,

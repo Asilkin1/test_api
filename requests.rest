@@ -70,14 +70,14 @@ Content-Type: application/json
 ### 
 GET http://localhost:3000/users/me
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTE2NDg0NX0.1PhXIX5bODcqTjtQCTr-x4uFZZJLEM1hoxgLg4mcIbI
-
+Content-Type: application/json
 {
     "role":"1"
 }
 
 # Change user role auth and admin required
 ###
-PUT http://localhost:3000/users/1/role
+PUT http://localhost:3000/users/USER/role
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTEzODY1Nn0.2rU98xfylQ3dXzvGR5uxZCXYz0zF8lBKjCKoVJ6y0pU
 Content-Type: application/json
 
