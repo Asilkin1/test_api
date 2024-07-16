@@ -1,0 +1,88 @@
+# Works in VISUAL STUDIO CODE if Rest Client Extension is installed
+
+# Books routes
+
+
+# ADD BOOK require authorization
+###
+POST http://localhost:3000/books
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTEzODY1Nn0.2rU98xfylQ3dXzvGR5uxZCXYz0zF8lBKjCKoVJ6y0pU
+Content-Type: application/json
+
+{
+    "title":"create book", 
+    "author":"admin user", 
+    "publicationDate":"today", 
+    "genres":"fiction",
+    
+}
+
+
+# GET ALL BOOKS
+###
+GET http://localhost:3000/books/
+
+# GET BOOK BY ID
+###
+GET http://localhost:3000/books/6696ada7e787bcb1c7885938
+
+# Update book info
+###
+PUT http://localhost:3000/books/6696ada7e787bcb1c7885938
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTEzODY1Nn0.2rU98xfylQ3dXzvGR5uxZCXYz0zF8lBKjCKoVJ6y0pU
+Content-Type: application/json
+
+{
+    "title":"Updated Book", 
+    "author":"Updated Author", 
+    "publicationDate":"Updated date", 
+    "genres":"Updated genres"  
+}
+
+# Delete book
+###
+DELETE http://localhost:3000/books/6696ada7e787bcb1c7885938
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTEzODY1Nn0.2rU98xfylQ3dXzvGR5uxZCXYz0zF8lBKjCKoVJ6y0pU
+
+# User routes
+
+###
+POST http://localhost:3000/users/register
+Content-Type: application/json
+
+{
+    "username": "user122233",
+    "password": "user13333",
+    "email": "user22@gmail.com",
+    "isConfirmed":false,
+    "role":1
+}
+
+###
+POST http://localhost:3000/users/login
+Content-Type: application/json
+
+{
+    "username":"user1",
+    "password":"user1"
+}
+# Not admin but authorized
+### 
+GET http://localhost:3000/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTE2NDg0NX0.1PhXIX5bODcqTjtQCTr-x4uFZZJLEM1hoxgLg4mcIbI
+
+{
+    "role":"1"
+}
+
+# Change user role auth and admin required
+###
+PUT http://localhost:3000/users/1/role
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxIiwicGFzc3dvcmQiOiJ1c2VyMSIsImlhdCI6MTcyMTEzODY1Nn0.2rU98xfylQ3dXzvGR5uxZCXYz0zF8lBKjCKoVJ6y0pU
+Content-Type: application/json
+
+{   "username":"fake-user",
+    "password":"fake-password",
+    "email":"fake-user-email@gmail.com",
+    "role":"1"
+}
